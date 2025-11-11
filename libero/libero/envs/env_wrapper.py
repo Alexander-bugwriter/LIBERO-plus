@@ -201,8 +201,13 @@ class ControlEnv:
         renderer_config=None,
         **kwargs,
     ):
-        if "_view_" in bddl_file_name and "_initstate_" in bddl_file_name:
-            bddl_file_name, angle_view_initstate = bddl_file_name.split("_view_")
+        # if "_view_" in bddl_file_name and "_initstate_" in bddl_file_name:
+        if "_view_" in str(bddl_file_name) and "_initstate_" in str(bddl_file_name):
+            try:
+                bddl_file_name, angle_view_initstate = bddl_file_name.split("_view_")
+            except:
+                bddl_file_name_str = str(bddl_file_name)
+                bddl_file_name, angle_view_initstate = bddl_file_name_str.split("_view_")
             bddl_file_name = bddl_file_name + ".bddl"
             angle_view, init_state = angle_view_initstate.split("_initstate_")
             init_state = init_state.split(".")[0]
