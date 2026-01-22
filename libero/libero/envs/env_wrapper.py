@@ -16,7 +16,7 @@ from wand.api import library as wandlibrary
 from wand.image import Image as WandImage
 from skimage.filters import gaussian
 from scipy.ndimage import zoom as scizoom
-
+from skimage.transform import resize   # 文件顶部顺手 import
 # Tell Python about the C method
 wandlibrary.MagickMotionBlurImage.argtypes = (ctypes.c_void_p,  # wand
                                               ctypes.c_double,  # radius
